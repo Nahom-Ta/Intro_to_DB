@@ -1,20 +1,21 @@
 import mysql.connector  # Import MySQL connector
 
-connection = None  # Initialize connection variable
+# Initialize connection variable
+connection = None  
 
 try:
-    # Establish connection
+    # Establish connection to the MySQL server
     connection = mysql.connector.connect(
         host='localhost',  # Change if necessary
-        user='your_username',  # Replace with your MySQL username
-        password='your_password'  # Replace with your MySQL password
+        user='your_actual_username',  # Replace with your MySQL username (e.g., 'root')
+        password='your_actual_password'  # Replace with your MySQL password
     )
     print("Connection to MySQL server successful!")
 
     # Create cursor
     cursor = connection.cursor()
     
-    # Create database
+    # Create database if it does not exist
     cursor.execute("CREATE DATABASE IF NOT EXISTS alx_book_store")
     print("Database 'alx_book_store' created successfully!")
 
